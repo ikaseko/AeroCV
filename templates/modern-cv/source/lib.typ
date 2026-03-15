@@ -534,7 +534,7 @@
           radius: 2cm,
           width: 4cm,
           height: 4cm,
-          profile-picture,
+          [#profile-picture],
         )
       ],
     )
@@ -867,7 +867,7 @@
           radius: 2cm,
           width: 4cm,
           height: auto,
-          profile-picture,
+          [#profile-picture],
         )
       ],
       [

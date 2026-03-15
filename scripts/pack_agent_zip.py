@@ -3,7 +3,7 @@ import zipfile
 
 def pack_agent_data():
     base_dir = r"c:/Users/bbog2/Downloads/AWESOME_CV"
-    out_zip_path = os.path.join(base_dir, "AeroCV_Agent_Data.zip")
+    out_zip_path = os.path.join(base_dir, "assets.zip")
     
     # Files and directories to include in the master zip
     includes = [
@@ -18,6 +18,7 @@ def pack_agent_data():
         "templates",
         "cover_letters",
         "docs",
+        "packages",
         "template_images" # Critical: GPT agent needs to render these visuals to the user
     ]
     

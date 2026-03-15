@@ -24,8 +24,8 @@
 
 
 /* Styling */
-#let headerFont = ("Source Sans Pro", "Symbols Nerd Font")
-#let textFont = ("Source Sans Pro", "Symbols Nerd Font")
+#let headerFont = ("Arial", "Roboto", "Source Sans 3", "sans-serif")
+#let textFont = ("Arial", "Roboto", "Source Sans 3", "sans-serif")
 
 #let textColors = (
     lightGray: rgb("#ededef"),

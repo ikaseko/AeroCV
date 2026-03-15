@@ -161,8 +161,8 @@
         "source": "templates/vantage/source",
         "fonts": "templates/vantage/fonts",
         "packages": "templates/vantage/packages",
-        "templateFile": "templates/vantage/source/template/resume.typ",
-        "libraryFile": "templates/vantage/source/lib.typ"
+        "templateFile": "templates/vantage/source/example.typ",
+        "libraryFile": "templates/vantage/source/vantage-typst.typ"
       },
       "preview": {
         "image": "template_images/resumes/vantage-preview.png",
@@ -294,7 +294,7 @@
         "source": "cover_letters/modern-cv/source",
         "fonts": "cover_letters/modern-cv/fonts",
         "packages": "cover_letters/modern-cv/packages",
-        "templateFile": "cover_letters/modern-cv/source/template/coverletter.typ",
+        "templateFile": "templates/modern-cv/source/template/coverletter.typ",
         "libraryFile": "templates/modern-cv/source/lib.typ"
       },
       "preview": {

@@ -11,17 +11,10 @@
     address: "New York, NY",
     date: "March 15, 2025"
   ),
-  recipient: (
-    name: "Sarah Jenkins",
-    title: "Director of Design",
-    company: "Creative Studio LLC",
-    address: "123 Innovation Way, San Francisco, CA"
-  ),
   accent-color: rgb("#D90429"),
 )
 
-#cover-letter-body[
-  Dear Sarah Jenkins,
+Dear Sarah Jenkins,
 
   I am writing to express my strong interest in the Lead Product Designer position at Creative Studio LLC. With over 8 years of experience creating digital experiences that balance user needs with business goals, I am confident in my ability to contribute to your team's ongoing success.
   
@@ -29,8 +22,7 @@
   
   I would welcome the opportunity to discuss how my background in interactive design and my passion for pixel-perfect execution align with the needs of your design team.
 
-  Thank you for your time and consideration.
-]
+Thank you for your time and consideration.
 
-#cover-letter-closing("Best regards,")
-#text(weight: "bold")[Alex Morgan]
+Best regards,
+*Alex Morgan*

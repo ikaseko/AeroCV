@@ -51,6 +51,15 @@ for f in glob.glob("/mnt/data/*"):
         os.chmod(os.path.join(work, "typst"), 0o755)
         break
 
+# Setup XDG_DATA_HOME for local typst packages
+xdg = os.path.join(work, "xdg")
+os.environ["XDG_DATA_HOME"] = xdg
+preview_dst = os.path.join(xdg, "typst", "packages", "preview")
+os.makedirs(os.path.dirname(preview_dst), exist_ok=True)
+# Symlink packages folder from extracted template into XDG path
+if os.path.exists(os.path.join(work, "packages", "preview")):
+    os.symlink(os.path.join(work, "packages", "preview"), preview_dst)
+
 os.chdir(work)
 ```
 
@@ -185,3 +194,7 @@ Summary
 - Do NOT pass `profile-picture: none` to modern-cv — just omit the parameter entirely
 - Font warnings are normal — Typst uses fallback fonts
 - Keep bullets concise, action-oriented, with measurable results
+- **CRITICAL: ESCAPE SPECIAL CHARACTERS** in user text before putting it into Typst:
+  - Escape `@` as `\@` (e.g., `test\@email.com`)
+  - Escape `<` and `>` as `\<` and `\>` (otherwise Typst thinks it's a label)
+  - Escape `$` as `\$` (otherwise Typst enters math mode)

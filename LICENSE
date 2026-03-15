@@ -1,0 +1,23 @@
+AeroCV - AI Resume Generator - Functional Source License, Version 1.1 with Non-Compete Clause
+
+License Date: 2026-03-15
+Licensor: [Your Name/Company Name]
+
+1. Purpose
+This license allows you to view, modify, and use the Software, including for commercial purposes, provided that you do not use it to Create a Competing Product.
+
+2. Definitions
+2.1. "Software" means the source code and templates included in this repository (specifically excluding the Neat CV template which remains under MIT).
+2.2. "Create a Competing Product" means using the Software to create, host, or distribute a publicly available AI agent, GPT assistant, SaaS application, or online service whose primary purpose is to automatically generate CVs, resumes, or cover letters (including but not limited to OpenAI Custom GPTs, Anthropic Claude Assistants, or similar platforms).
+
+3. Grant of Rights
+Licensor grants you a non-exclusive, worldwide, royalty-free license to:
+a. Use the Software for personal or internal business purposes.
+b. Modify the Software.
+c. Distribute the Software, provided that such distribution includes this License and does not violate the Non-Compete Restriction.
+
+4. Non-Compete Restriction
+You may NOT use the Software, or any derivative works thereof, to Create a Competing Product. This includes, but is not limited to, copying the templates, system prompts, or architecture to launch a competing product on the GPT Store or any other AI app platform.
+
+5. No Warranty
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

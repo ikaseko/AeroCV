@@ -1,0 +1,18 @@
+# Executables
+*.exe
+typst.exe
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary / Generated files
+_temp_import/
+output/
+__pycache__/
+*.pyc
+
+# Local environments / IDEs
+.vscode/
+.idea/
+.gemini/

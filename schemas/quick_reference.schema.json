@@ -1,0 +1,80 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/your-repo/cv-generator/schemas/quick_reference.schema.json",
+  "title": "Quick Reference Schema",
+  "description": "Schema for the quick reference guide that helps GPT agents quickly discover templates",
+  "type": "object",
+  "required": ["version", "availableTemplates"],
+  "properties": {
+    "version": { "type": "string" },
+    "description": { "type": "string" },
+    "howToUse": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "availableTemplates": {
+      "type": "object",
+      "properties": {
+        "resumes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "assetsPath"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "bestFor": { 
+                "type": "array", 
+                "items": { "type": "string" } 
+              },
+              "assetsPath": { "type": "string" },
+              "languages": { "type": "integer" },
+              "hasCoverLetter": { "type": "boolean" },
+              "keyFeatures": { 
+                "type": "array", 
+                "items": { "type": "string" } 
+              }
+            }
+          }
+        },
+        "coverLetters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "assetsPath"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "matchesResume": { "type": "string" },
+              "assetsPath": { "type": "string" },
+              "keyFeatures": { 
+                "type": "array", 
+                "items": { "type": "string" } 
+              }
+            }
+          }
+        }
+      }
+    },
+    "quickCommands": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": { "type": "string" }
+      }
+    },
+    "compilation": {
+      "type": "object",
+      "properties": {
+        "engine": { "type": "string" },
+        "offline": { "type": "boolean" },
+        "command": { "type": "string" },
+        "outputFormat": { "type": "string" }
+      }
+    },
+    "fileStructure": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    }
+  }
+}

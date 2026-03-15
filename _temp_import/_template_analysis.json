@@ -1,0 +1,134 @@
+{
+  "typst-cv": {
+    "typ_files": [
+      "example.typ",
+      "template.typ"
+    ],
+    "packages": [],
+    "fonts": [],
+    "images": [
+      "example.png",
+      "picture.png"
+    ]
+  },
+  "brilliant-cv": {
+    "typ_files": [
+      "docs\\docs-template.typ",
+      "docs\\docs.typ",
+      "src\\cv.typ",
+      "src\\letter.typ",
+      "src\\lib.typ",
+      "src\\utils\\injection.typ",
+      "src\\utils\\lang.typ",
+      "src\\utils\\styles.typ",
+      "template\\cv.typ",
+      "template\\letter.typ",
+      "template\\modules_de\\certificates.typ",
+      "template\\modules_de\\education.typ",
+      "template\\modules_de\\professional.typ",
+      "template\\modules_de\\projects.typ",
+      "template\\modules_de\\publications.typ",
+      "template\\modules_de\\skills.typ",
+      "template\\modules_en\\certificates.typ",
+      "template\\modules_en\\education.typ",
+      "template\\modules_en\\professional.typ",
+      "template\\modules_en\\projects.typ",
+      "template\\modules_en\\publications.typ",
+      "template\\modules_en\\skills.typ",
+      "template\\modules_fr\\certificates.typ",
+      "template\\modules_fr\\education.typ",
+      "template\\modules_fr\\professional.typ",
+      "template\\modules_fr\\projects.typ",
+      "template\\modules_fr\\publications.typ",
+      "template\\modules_fr\\skills.typ",
+      "template\\modules_it\\certificates.typ",
+      "template\\modules_it\\education.typ",
+      "template\\modules_it\\professional.typ",
+      "template\\modules_it\\projects.typ",
+      "template\\modules_it\\publications.typ",
+      "template\\modules_it\\skills.typ",
+      "template\\modules_zh\\certificates.typ",
+      "template\\modules_zh\\education.typ",
+      "template\\modules_zh\\professional.typ",
+      "template\\modules_zh\\projects.typ",
+      "template\\modules_zh\\publications.typ",
+      "template\\modules_zh\\skills.typ"
+    ],
+    "packages": [
+      "brilliant-cv:3.2.0",
+      "tidy:0.4.2",
+      "fontawesome:0.6.0"
+    ],
+    "fonts": [
+      "Roboto",
+      "Inter",
+      "Source Sans"
+    ],
+    "images": [
+      "thumbnail.png",
+      "template\\assets\\avatar.png",
+      "template\\assets\\signature.png",
+      "template\\assets\\logos\\abc_company.png",
+      "template\\assets\\logos\\pqr_corp.png",
+      "template\\assets\\logos\\ucla.png",
+      "template\\assets\\logos\\xyz_corp.png"
+    ]
+  },
+  "vercanard": {
+    "typ_files": [
+      "template.typ",
+      "template\\main.typ"
+    ],
+    "packages": [
+      "vercanard:1.0.3"
+    ],
+    "fonts": [],
+    "images": [
+      "thumbnail.png"
+    ]
+  },
+  "vantage": {
+    "typ_files": [
+      "example.typ",
+      "vantage-typst.typ"
+    ],
+    "packages": [],
+    "fonts": [],
+    "images": [
+      "screenshot.png",
+      "icons\\calendar.svg",
+      "icons\\email.svg",
+      "icons\\github.svg",
+      "icons\\linkedin.svg",
+      "icons\\location.svg",
+      "icons\\website.svg"
+    ]
+  },
+  "neat-cv": {
+    "typ_files": [
+      "src\\cv.typ",
+      "src\\letter.typ",
+      "src\\metadata.typ",
+      "src\\template.typ",
+      "src\\content\\en\\education.typ",
+      "src\\content\\en\\experience.typ",
+      "src\\content\\en\\interests.typ",
+      "src\\content\\en\\languages.typ",
+      "src\\content\\en\\skills.typ",
+      "src\\content\\fr\\education.typ",
+      "src\\content\\fr\\experience.typ",
+      "src\\content\\fr\\interests.typ",
+      "src\\content\\fr\\languages.typ",
+      "src\\content\\fr\\skills.typ"
+    ],
+    "packages": [],
+    "fonts": [
+      "Inter",
+      "Source Sans"
+    ],
+    "images": [
+      "src\\images\\avatar.png",
+      "src\\images\\signature.png"
+    ]
+  }
+}

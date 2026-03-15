@@ -1,0 +1,12 @@
+# compiled files
+**/*.pdf
+temp/
+
+# MacOS specific files (Apple sucks)
+.DS_Store
+
+# LLM
+.claude
+
+# Git worktrees
+.worktrees/

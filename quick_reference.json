@@ -1,0 +1,336 @@
+{
+  "$schema": "./schemas/quick_reference.schema.json",
+  "version": "1.0.0",
+  "description": "Quick reference guide for GPT agents to discover and select templates",
+  "howToUse": {
+    "step1": "Read this file to understand available templates",
+    "step2": "Use templates_registry.json for detailed template information",
+    "step3": "Use the 'paths.assets' to locate the ZIP file for compilation",
+    "step4": "Reference the 'sections' to understand available document structures"
+  },
+  "availableTemplates": {
+    "resumes": [
+      {
+        "id": "modern-cv",
+        "name": "Modern CV",
+        "bestFor": [
+          "tech",
+          "corporate",
+          "professional",
+          "modern"
+        ],
+        "assetsPath": "templates/modern-cv/assets/typst_assets.zip",
+        "languages": 35,
+        "hasCoverLetter": true,
+        "supportsPhoto": true,
+        "photoType": "circular",
+        "keyFeatures": [
+          "Clean modern design",
+          "FontAwesome icons",
+          "Multi-language",
+          "Customizable colors",
+          "Profile photo support (circular)"
+        ]
+      },
+      {
+        "id": "typst-cv",
+        "name": "Typst CV",
+        "bestFor": [
+          "general",
+          "simple",
+          "quick"
+        ],
+        "assetsPath": "templates/typst-cv/assets/typst_assets.zip",
+        "languages": 1,
+        "hasCoverLetter": false,
+        "supportsPhoto": true,
+        "photoType": "rectangular",
+        "keyFeatures": [
+          "Simple design",
+          "TOML configuration",
+          "Profile photo support"
+        ]
+      },
+      {
+        "id": "brilliant-cv",
+        "name": "Brilliant CV",
+        "bestFor": [
+          "ats",
+          "multi-language",
+          "professional"
+        ],
+        "assetsPath": "templates/brilliant-cv/assets/typst_assets.zip",
+        "languages": 5,
+        "hasCoverLetter": true,
+        "supportsPhoto": true,
+        "photoType": "circular-configurable",
+        "keyFeatures": [
+          "ATS-friendly",
+          "Modular sections",
+          "Multi-language",
+          "Profile photo (configurable radius)"
+        ]
+      },
+      {
+        "id": "vercanard",
+        "name": "VerCanard",
+        "bestFor": [
+          "minimal",
+          "single-page"
+        ],
+        "assetsPath": "templates/vercanard/assets/typst_assets.zip",
+        "languages": 1,
+        "hasCoverLetter": false,
+        "supportsPhoto": false,
+        "photoType": null,
+        "keyFeatures": [
+          "Minimalist design",
+          "Single page",
+          "Self-contained package"
+        ]
+      },
+      {
+        "id": "vantage",
+        "name": "Vantage",
+        "bestFor": [
+          "tech",
+          "clean"
+        ],
+        "assetsPath": "templates/vantage/assets/typst_assets.zip",
+        "languages": 1,
+        "hasCoverLetter": false,
+        "supportsPhoto": false,
+        "photoType": null,
+        "keyFeatures": [
+          "Clean layout",
+          "SVG icons",
+          "Fully ATS friendly",
+          "No graphical score bars",
+          "Simple structure"
+        ]
+      },
+      {
+        "id": "neat-cv",
+        "name": "Neat CV",
+        "bestFor": [
+          "bilingual",
+          "en-fr",
+          "academic"
+        ],
+        "assetsPath": "templates/neat-cv/assets/typst_assets.zip",
+        "languages": 2,
+        "hasCoverLetter": true,
+        "supportsPhoto": true,
+        "photoType": "rectangular-left",
+        "keyFeatures": [
+          "Bilingual (EN/FR)",
+          "Content separation",
+          "Profile photo (left side)",
+          "Source Sans Pro fonts included"
+        ]
+      },
+      {
+        "id": "designer-cv",
+        "name": "Designer CV",
+        "bestFor": [
+          "designers",
+          "creatives",
+          "high-end",
+          "modern"
+        ],
+        "assetsPath": "templates/designer-cv/assets/typst_assets.zip",
+        "languages": 1,
+        "hasCoverLetter": true,
+        "supportsPhoto": true,
+        "photoType": "circular",
+        "keyFeatures": [
+          "Visually striking",
+          "2-column layout",
+          "Stylized typography"
+        ]
+      },
+      {
+        "id": "executive-cv",
+        "name": "Executive CV",
+        "bestFor": [
+          "executives",
+          "directors",
+          "academics",
+          "conservative"
+        ],
+        "assetsPath": "templates/executive-cv/assets/typst_assets.zip",
+        "languages": 1,
+        "hasCoverLetter": true,
+        "supportsPhoto": true,
+        "photoType": "strict-right",
+        "keyFeatures": [
+          "Highly structured",
+          "ATS optimized",
+          "Minimalist"
+        ]
+      },
+      {
+        "id": "portfolio-cv",
+        "name": "Portfolio CV",
+        "bestFor": [
+          "developers",
+          "artists",
+          "engineers"
+        ],
+        "assetsPath": "templates/portfolio-cv/assets/typst_assets.zip",
+        "languages": 1,
+        "hasCoverLetter": true,
+        "supportsPhoto": true,
+        "photoType": "rounded",
+        "keyFeatures": [
+          "Highlights projects",
+          "Prominent portfolio links",
+          "Modern header"
+        ]
+      }
+    ],
+    "coverLetters": [
+      {
+        "id": "modern-cv-cover-letter",
+        "name": "Modern CV Cover Letter",
+        "matchesResume": "modern-cv",
+        "assetsPath": "cover_letters/modern-cv/assets/typst_assets.zip",
+        "keyFeatures": [
+          "Matches resume design",
+          "Professional layout",
+          "Signature support"
+        ]
+      },
+      {
+        "id": "designer-cover-letter",
+        "name": "Designer Cover Letter",
+        "matchesResume": "designer-cv",
+        "assetsPath": "cover_letters/designer-cover-letter/assets/typst_assets.zip",
+        "keyFeatures": [
+          "Matches designer-cv design"
+        ]
+      },
+      {
+        "id": "executive-cover-letter",
+        "name": "Executive Cover Letter",
+        "matchesResume": "executive-cv",
+        "assetsPath": "cover_letters/executive-cover-letter/assets/typst_assets.zip",
+        "keyFeatures": [
+          "Matches executive-cv design"
+        ]
+      },
+      {
+        "id": "portfolio-cover-letter",
+        "name": "Portfolio Cover Letter",
+        "matchesResume": "portfolio-cv",
+        "assetsPath": "cover_letters/portfolio-cover-letter/assets/typst_assets.zip",
+        "keyFeatures": [
+          "Matches portfolio-cv design"
+        ]
+      }
+    ]
+  },
+  "quickCommands": {
+    "modern-cv": {
+      "experience": "#resume-entry(title: \"Job Title\", location: \"Company\", date: \"2020-2024\")",
+      "education": "#resume-entry(title: \"University\", location: \"Degree\", date: \"2016-2020\")",
+      "skills": "#resume-skill-item(\"Category\", (\"Skill 1\", \"Skill 2\"))"
+    },
+    "modern-cv-cover-letter": {
+      "header": "#cover-letter-header(sender: ..., recipient: ...)",
+      "body": "#cover-letter-body[...] ",
+      "closing": "#cover-letter-closing(\"Sincerely,\")"
+    },
+    "designer-cv": {
+      "experience": "#resume-entry(...)",
+      "education": "#resume-entry(...)",
+      "skills": "#resume-skill-item(...)"
+    },
+    "executive-cv": {
+      "experience": "#resume-entry(...)",
+      "education": "#resume-entry(...)",
+      "skills": "#resume-skill-item(...)"
+    },
+    "portfolio-cv": {
+      "experience": "#resume-entry(...)",
+      "education": "#resume-entry(...)",
+      "skills": "#resume-skill-item(...)"
+    }
+  },
+  "compilation": {
+    "engine": "typst",
+    "offline": true,
+    "command": "./typst compile --font-path fonts resume.typ",
+    "outputFormat": "pdf"
+  },
+  "fileStructure": {
+    "templates": "templates/<template-id>/",
+    "assets": "templates/<template-id>/assets/typst_assets.zip",
+    "images": "template_images/resumes/<template-id>-preview.png",
+    "coverLetters": "cover_letters/<template-id>/",
+    "output": "output/"
+  },
+  "photoSupport": {
+    "detection": "Check /mnt/data/ for uploaded PNG/JPG files",
+    "skipFiles": [
+      "avatar.png",
+      "profile.png",
+      "signature.png",
+      "picture.png",
+      "photo.png",
+      "thumbnail.png"
+    ],
+    "templates": {
+      "modern-cv": {
+        "parameter": "profile-picture",
+        "syntax": "profile-picture: image(\"path/to/photo.png\")",
+        "display": "circular",
+        "position": "header-right"
+      },
+      "typst-cv": {
+        "parameter": "picture",
+        "syntax": "picture = \"path/to/photo.png\"",
+        "display": "rectangular",
+        "position": "header-grid"
+      },
+      "brilliant-cv": {
+        "parameter": "display_profile_photo",
+        "syntax": "display_profile_photo = true; profile_photo_path = \"path/to/photo.png\"",
+        "display": "circular-configurable",
+        "position": "header-left"
+      },
+      "neat-cv": {
+        "parameter": "profilePhoto",
+        "syntax": "#let profilePhoto = \"path/to/photo.png\"",
+        "display": "rectangular",
+        "position": "left-sidebar"
+      },
+      "vercanard": {
+        "supported": false,
+        "note": "No photo support"
+      },
+      "vantage": {
+        "supported": false,
+        "note": "No photo support"
+      },
+      "designer-cv": {
+        "parameter": "profile-picture",
+        "syntax": "profile-picture: image(\"path/to/photo.png\")",
+        "display": "standard",
+        "position": "header-right"
+      },
+      "executive-cv": {
+        "parameter": "profile-picture",
+        "syntax": "profile-picture: image(\"path/to/photo.png\")",
+        "display": "standard",
+        "position": "header-right"
+      },
+      "portfolio-cv": {
+        "parameter": "profile-picture",
+        "syntax": "profile-picture: image(\"path/to/photo.png\")",
+        "display": "standard",
+        "position": "header-right"
+      }
+    }
+  }
+}

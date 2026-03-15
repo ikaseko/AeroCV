@@ -1,0 +1,24 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+  - repo: https://github.com/Enter-tainer/typstyle
+    rev: 'v0.11.29'
+    hooks:
+      - id: typstyle
+  - repo: local
+    hooks:
+      - id: delete-all-pdfs
+        name: Delete all PDFs
+        entry: bash -c 'find . -type f -name "*.pdf" -delete'
+        language: system
+        types: [file]
+        files: \.pdf$
+      - id: check-version-consistency
+        name: Check version consistency
+        entry: bash -c 'just check-version'
+        language: system
+        pass_filenames: false
+        files: \.(typ|toml)$

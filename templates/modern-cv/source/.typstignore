@@ -1,0 +1,9 @@
+.github
+.fork
+scripts
+template/*.pdf
+.gitignore
+.issuetracker
+tests/*
+docs/*
+Justfile

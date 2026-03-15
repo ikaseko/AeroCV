@@ -1,0 +1,302 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/your-repo/cv-generator/schemas/templates_registry.schema.json",
+  "title": "CV Templates Registry Schema",
+  "description": "Schema for the templates registry that GPT agents use to discover and select CV/resume templates",
+  "type": "object",
+  "required": ["version", "templates"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "JSON Schema reference"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Registry version in semver format"
+    },
+    "lastUpdated": {
+      "type": "string",
+      "format": "date",
+      "description": "Last update date (YYYY-MM-DD)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Registry description"
+    },
+    "templates": {
+      "type": "array",
+      "description": "List of available resume/CV templates",
+      "items": {
+        "$ref": "#/$defs/template"
+      }
+    },
+    "coverLetterTemplates": {
+      "type": "array",
+      "description": "List of available cover letter templates",
+      "items": {
+        "$ref": "#/$defs/coverLetterTemplate"
+      }
+    },
+    "metadata": {
+      "$ref": "#/$defs/metadata"
+    }
+  },
+  "$defs": {
+    "template": {
+      "type": "object",
+      "required": ["id", "name", "type", "paths"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique template identifier (kebab-case)",
+          "pattern": "^[a-z][a-z0-9-]*$"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable template name"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["resume", "cv"],
+          "description": "Template type"
+        },
+        "version": {
+          "type": "string",
+          "description": "Template version"
+        },
+        "description": {
+          "type": "string",
+          "description": "Template description"
+        },
+        "author": {
+          "type": "string",
+          "description": "Template author"
+        },
+        "repository": {
+          "type": "string",
+          "format": "uri",
+          "description": "Source repository URL"
+        },
+        "license": {
+          "type": "string",
+          "description": "License identifier (e.g., MIT, Apache-2.0)"
+        },
+        "paths": {
+          "type": "object",
+          "required": ["assets"],
+          "description": "File paths for template resources",
+          "properties": {
+            "assets": {
+              "type": "string",
+              "description": "Path to assets ZIP file containing binary, fonts, and packages"
+            },
+            "source": {
+              "type": "string",
+              "description": "Path to template source directory"
+            },
+            "fonts": {
+              "type": "string",
+              "description": "Path to fonts directory"
+            },
+            "packages": {
+              "type": "string",
+              "description": "Path to Typst packages directory"
+            },
+            "templateFile": {
+              "type": "string",
+              "description": "Path to main .typ template file"
+            },
+            "libraryFile": {
+              "type": "string",
+              "description": "Path to library .typ file"
+            }
+          }
+        },
+        "preview": {
+          "type": "object",
+          "description": "Preview image paths",
+          "properties": {
+            "image": {
+              "type": "string",
+              "description": "Path to full-size preview image"
+            },
+            "thumbnail": {
+              "type": "string",
+              "description": "Path to thumbnail image"
+            }
+          }
+        },
+        "features": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of template features"
+        },
+        "languages": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^[a-z]{2}$" },
+          "description": "Supported language codes (ISO 639-1)"
+        },
+        "customization": {
+          "type": "object",
+          "description": "Available customization options",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "default": { "description": "Default value" },
+              "description": { "type": "string" },
+              "options": { 
+                "type": "array", 
+                "items": { "type": "string" } 
+              }
+            }
+          }
+        },
+        "sections": {
+          "type": "array",
+          "description": "Available document sections",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+              "name": { "type": "string" },
+              "command": { "type": "string" },
+              "itemCommand": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "coverLetterTemplate": {
+          "type": "object",
+          "description": "Related cover letter template",
+          "properties": {
+            "id": { "type": "string" },
+            "path": { "type": "string" },
+            "preview": { "type": "string" }
+          }
+        },
+        "requirements": {
+          "type": "object",
+          "description": "Template requirements",
+          "properties": {
+            "typstVersion": { "type": "string" },
+            "fonts": { 
+              "type": "array", 
+              "items": { "type": "string" } 
+            },
+            "packages": { 
+              "type": "array", 
+              "items": { "type": "string" } 
+            }
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Search tags for template discovery"
+        }
+      }
+    },
+    "coverLetterTemplate": {
+      "type": "object",
+      "required": ["id", "name", "type", "paths"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique template identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable template name"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["cover_letter"],
+          "description": "Template type"
+        },
+        "version": {
+          "type": "string",
+          "description": "Template version"
+        },
+        "description": {
+          "type": "string",
+          "description": "Template description"
+        },
+        "author": {
+          "type": "string",
+          "description": "Template author"
+        },
+        "repository": {
+          "type": "string",
+          "format": "uri",
+          "description": "Source repository URL"
+        },
+        "license": {
+          "type": "string",
+          "description": "License identifier"
+        },
+        "paths": {
+          "type": "object",
+          "required": ["assets"],
+          "properties": {
+            "assets": { "type": "string" },
+            "source": { "type": "string" },
+            "fonts": { "type": "string" },
+            "packages": { "type": "string" },
+            "templateFile": { "type": "string" },
+            "libraryFile": { "type": "string" }
+          }
+        },
+        "preview": {
+          "type": "object",
+          "properties": {
+            "image": { "type": "string" },
+            "thumbnail": { "type": "string" }
+          }
+        },
+        "features": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "languages": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "relatedResumeTemplate": {
+          "type": "string",
+          "description": "ID of related resume template"
+        },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "totalTemplates": { "type": "integer" },
+        "totalCoverLetterTemplates": { "type": "integer" },
+        "supportedFormats": { 
+          "type": "array", 
+          "items": { "type": "string" } 
+        },
+        "engine": { 
+          "type": "string", 
+          "enum": ["typst", "latex"] 
+        },
+        "offlineCapable": { "type": "boolean" }
+      }
+    }
+  }
+}

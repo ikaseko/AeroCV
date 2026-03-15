@@ -1,0 +1,423 @@
+{
+  "$schema": "./schemas/templates_registry.schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2026-03-14",
+  "description": "Registry of available CV/Resume and Cover Letter templates for Typst-based document generation",
+  "templates": [
+    {
+      "id": "modern-cv",
+      "name": "Modern CV",
+      "type": "resume",
+      "version": "0.9.0",
+      "description": "A modern resume template based on the Awesome-CV LaTeX template. Features clean design, customizable colors, and multi-language support.",
+      "author": "Paul Tsouchlos",
+      "repository": "https://github.com/ptsouchlos/modern-cv",
+      "license": "MIT",
+      "paths": {
+        "assets": "templates/modern-cv/assets/typst_assets.zip",
+        "source": "templates/modern-cv/source",
+        "fonts": "templates/modern-cv/fonts",
+        "packages": "templates/modern-cv/packages",
+        "templateFile": "templates/modern-cv/source/template/resume.typ",
+        "libraryFile": "templates/modern-cv/source/lib.typ"
+      },
+      "preview": {
+        "image": "template_images/resumes/modern-cv-preview.png",
+        "thumbnail": "template_images/resumes/thumbnails/modern-cv-thumb.png"
+      },
+      "features": [
+        "Modern clean design",
+        "Customizable colors",
+        "Profile picture support",
+        "Multi-language (20+ languages)",
+        "FontAwesome icons",
+        "Multiple sections (experience, education, skills)",
+        "Cover letter companion template"
+      ],
+      "languages": [
+        "en",
+        "ru",
+        "de",
+        "fr",
+        "es",
+        "it",
+        "pt",
+        "nl",
+        "pl",
+        "zh",
+        "ja",
+        "ko",
+        "ar",
+        "hi",
+        "tr",
+        "sv",
+        "da",
+        "fi",
+        "no",
+        "cs",
+        "sk",
+        "hu",
+        "ro",
+        "bg",
+        "hr",
+        "sr",
+        "sl",
+        "et",
+        "lv",
+        "lt",
+        "el",
+        "he",
+        "th",
+        "vi",
+        "id",
+        "ms"
+      ],
+      "customization": {
+        "accentColor": {
+          "default": "#262F99",
+          "description": "Primary accent color for headers and highlights"
+        },
+        "coloredHeaders": {
+          "default": true,
+          "description": "Enable/disable colored section headers"
+        },
+        "showFooter": {
+          "default": true,
+          "description": "Enable/disable page footer"
+        },
+        "paperSize": {
+          "default": "a4",
+          "options": [
+            "a4",
+            "us-letter"
+          ],
+          "description": "Paper size for the document"
+        },
+        "profilePicture": {
+          "default": "none",
+          "description": "Path to profile picture image or 'none'"
+        }
+      },
+      "sections": [
+        {
+          "name": "Experience",
+          "command": "resume-entry",
+          "itemCommand": "resume-item",
+          "description": "Work experience entries with title, location, date, and bullet points"
+        },
+        {
+          "name": "Education",
+          "command": "resume-entry",
+          "itemCommand": "resume-item",
+          "description": "Education entries with institution, degree, date, and achievements"
+        },
+        {
+          "name": "Skills",
+          "command": "resume-skill-item",
+          "description": "Skill categories with list of skills"
+        },
+        {
+          "name": "Projects",
+          "command": "resume-entry",
+          "itemCommand": "resume-item",
+          "description": "Project entries with title, location, date, and description"
+        }
+      ],
+      "coverLetterTemplate": {
+        "id": "modern-cv-cover-letter",
+        "path": "cover_letters/modern-cv/coverletter.typ",
+        "preview": "template_images/cover_letters/modern-cv-cl-preview.png"
+      },
+      "requirements": {
+        "typstVersion": ">=0.12.0",
+        "fonts": [
+          "Source Sans 3",
+          "Roboto"
+        ],
+        "packages": [
+          "fontawesome",
+          "linguify"
+        ]
+      },
+      "tags": [
+        "modern",
+        "professional",
+        "clean",
+        "minimal",
+        "tech",
+        "corporate"
+      ]
+    },
+    {
+      "id": "vantage",
+      "name": "Vantage",
+      "type": "resume",
+      "description": "A clean and robust resume template designed for ATS compatibility, featuring pure text skills and a simple structure.",
+      "author": "Paul Tsouchlos",
+      "repository": "https://github.com/ptsouchlos/vantage-typst",
+      "license": "MIT",
+      "paths": {
+        "assets": "templates/vantage/assets/typst_assets.zip",
+        "source": "templates/vantage/source",
+        "fonts": "templates/vantage/fonts",
+        "packages": "templates/vantage/packages",
+        "templateFile": "templates/vantage/source/template/resume.typ",
+        "libraryFile": "templates/vantage/source/lib.typ"
+      },
+      "preview": {
+        "image": "template_images/resumes/vantage-preview.png",
+        "thumbnail": "template_images/resumes/thumbnails/vantage-thumb.png"
+      },
+      "features": [
+        "Clean minimal layout",
+        "ATS friendly",
+        "Pure text skills (no graphical bars)",
+        "SVG icons",
+        "Simple robust structure"
+      ],
+      "languages": [
+        "en"
+      ],
+      "customization": {
+        "accentColor": {
+          "default": "#000000",
+          "description": "Primary accent color for headers and highlights"
+        },
+        "showFooter": {
+          "default": false,
+          "description": "Enable/disable page footer"
+        },
+        "paperSize": {
+          "default": "a4",
+          "options": [
+            "a4",
+            "us-letter"
+          ],
+          "description": "Paper size for the document"
+        }
+      },
+      "sections": [
+        {
+          "name": "Experience",
+          "command": "resume-entry",
+          "itemCommand": "resume-item",
+          "description": "Work experience entries with title, location, date, and bullet points"
+        },
+        {
+          "name": "Education",
+          "command": "resume-entry",
+          "itemCommand": "resume-item",
+          "description": "Education entries with institution, degree, date, and achievements"
+        },
+        {
+          "name": "Skills",
+          "command": "resume-skill-item",
+          "description": "Skill categories with list of skills"
+        },
+        {
+          "name": "Projects",
+          "command": "resume-entry",
+          "itemCommand": "resume-item",
+          "description": "Project entries with title, location, date, and description"
+        }
+      ],
+      "requirements": {
+        "typstVersion": ">=0.12.0",
+        "fonts": [
+          "Source Sans 3"
+        ],
+        "packages": [
+          "fontawesome"
+        ]
+      },
+      "tags": [
+        "modern",
+        "professional",
+        "clean",
+        "minimal",
+        "ats-friendly",
+        "text-skills"
+      ]
+    },
+    {
+      "id": "designer-cv",
+      "name": "Designer CV",
+      "type": "resume",
+      "paths": {
+        "assets": "templates/designer-cv/assets/typst_assets.zip",
+        "source": "templates/designer-cv/source",
+        "templateFile": "templates/designer-cv/source/designer-cv.typ"
+      },
+      "preview": {
+        "image": "template_images/resumes/designer-cv-preview.png"
+      }
+    },
+    {
+      "id": "executive-cv",
+      "name": "Executive CV",
+      "type": "resume",
+      "paths": {
+        "assets": "templates/executive-cv/assets/typst_assets.zip",
+        "source": "templates/executive-cv/source",
+        "templateFile": "templates/executive-cv/source/executive-cv.typ"
+      },
+      "preview": {
+        "image": "template_images/resumes/executive-cv-preview.png"
+      }
+    },
+    {
+      "id": "portfolio-cv",
+      "name": "Portfolio CV",
+      "type": "resume",
+      "paths": {
+        "assets": "templates/portfolio-cv/assets/typst_assets.zip",
+        "source": "templates/portfolio-cv/source",
+        "templateFile": "templates/portfolio-cv/source/portfolio-cv.typ"
+      },
+      "preview": {
+        "image": "template_images/resumes/portfolio-cv-preview.png"
+      }
+    }
+  ],
+  "coverLetterTemplates": [
+    {
+      "id": "modern-cv-cover-letter",
+      "name": "Modern CV Cover Letter",
+      "type": "cover_letter",
+      "version": "0.9.0",
+      "description": "Companion cover letter template for Modern CV. Matches the design and style of the Modern CV resume.",
+      "author": "Paul Tsouchlos",
+      "repository": "https://github.com/ptsouchlos/modern-cv",
+      "license": "MIT",
+      "paths": {
+        "assets": "cover_letters/modern-cv/assets/typst_assets.zip",
+        "source": "cover_letters/modern-cv/source",
+        "fonts": "cover_letters/modern-cv/fonts",
+        "packages": "cover_letters/modern-cv/packages",
+        "templateFile": "cover_letters/modern-cv/source/template/coverletter.typ",
+        "libraryFile": "templates/modern-cv/source/lib.typ"
+      },
+      "preview": {
+        "image": "template_images/cover_letters/modern-cv-cl-preview.png",
+        "thumbnail": "template_images/cover_letters/thumbnails/modern-cv-cl-thumb.png"
+      },
+      "features": [
+        "Matches Modern CV resume design",
+        "Customizable signature",
+        "Multi-language support",
+        "Professional layout"
+      ],
+      "languages": [
+        "en",
+        "ru",
+        "de",
+        "fr",
+        "es",
+        "it",
+        "pt",
+        "nl",
+        "pl",
+        "zh",
+        "ja",
+        "ko",
+        "ar",
+        "hi",
+        "tr",
+        "sv",
+        "da",
+        "fi",
+        "no",
+        "cs",
+        "sk",
+        "hu",
+        "ro",
+        "bg",
+        "hr",
+        "sr",
+        "sl",
+        "et",
+        "lv",
+        "lt",
+        "el",
+        "he",
+        "th",
+        "vi",
+        "id",
+        "ms"
+      ],
+      "sections": [
+        {
+          "name": "Header",
+          "description": "Sender and recipient information"
+        },
+        {
+          "name": "Opening",
+          "description": "Salutation and opening paragraph"
+        },
+        {
+          "name": "Body",
+          "description": "Main content paragraphs"
+        },
+        {
+          "name": "Closing",
+          "description": "Closing paragraph and signature"
+        }
+      ],
+      "relatedResumeTemplate": "modern-cv",
+      "tags": [
+        "cover-letter",
+        "professional",
+        "modern",
+        "matching"
+      ]
+    },
+    {
+      "id": "designer-cover-letter",
+      "name": "Designer Cover Letter",
+      "type": "cover_letter",
+      "paths": {
+        "assets": "cover_letters/designer-cover-letter/assets/typst_assets.zip",
+        "source": "cover_letters/designer-cover-letter/source",
+        "templateFile": "cover_letters/designer-cover-letter/source/designer-cover-letter.typ"
+      },
+      "preview": {
+        "image": "template_images/cover_letters/designer-cover-letter-preview.png"
+      }
+    },
+    {
+      "id": "executive-cover-letter",
+      "name": "Executive Cover Letter",
+      "type": "cover_letter",
+      "paths": {
+        "assets": "cover_letters/executive-cover-letter/assets/typst_assets.zip",
+        "source": "cover_letters/executive-cover-letter/source",
+        "templateFile": "cover_letters/executive-cover-letter/source/executive-cover-letter.typ"
+      },
+      "preview": {
+        "image": "template_images/cover_letters/executive-cover-letter-preview.png"
+      }
+    },
+    {
+      "id": "portfolio-cover-letter",
+      "name": "Portfolio Cover Letter",
+      "type": "cover_letter",
+      "paths": {
+        "assets": "cover_letters/portfolio-cover-letter/assets/typst_assets.zip",
+        "source": "cover_letters/portfolio-cover-letter/source",
+        "templateFile": "cover_letters/portfolio-cover-letter/source/portfolio-cover-letter.typ"
+      },
+      "preview": {
+        "image": "template_images/cover_letters/portfolio-cover-letter-preview.png"
+      }
+    }
+  ],
+  "metadata": {
+    "totalTemplates": 1,
+    "totalCoverLetterTemplates": 1,
+    "supportedFormats": [
+      "pdf"
+    ],
+    "engine": "typst",
+    "offlineCapable": true
+  }
+}

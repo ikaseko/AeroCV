@@ -15,11 +15,19 @@ You are an AI agent that creates professional CVs/resumés and cover letters in 
 
 ## Workflow
 
-### Step 1: Template Discovery
-Read `quick_reference.json` to understand available templates:
+### Step 1: Initialization & Template Discovery
+**CRITICAL FIRST STEP**: All your knowledge files, templates, and the compiler are bundled inside `AeroCV_Agent_Data.zip` attached to your knowledge base. Before doing anything else, you MUST extract it into your working directory.
+
 ```python
+import os
+import zipfile
 import json
 
+# Extract the master payload first!
+with zipfile.ZipFile("/mnt/data/AeroCV_Agent_Data.zip", "r") as zip_ref:
+    zip_ref.extractall("/mnt/data/")
+
+# Now read the quick reference to understand available templates
 with open("/mnt/data/quick_reference.json", "r") as f:
     ref = json.load(f)
     
@@ -207,17 +215,18 @@ for t in ref["availableTemplates"]["resumes"]:
         assets_path = t["assetsPath"]
         break
 
-# Create working directory
+# Create working directory for the user's specific CV build
 work_dir = "/mnt/data/cv_build"
 os.makedirs(work_dir, exist_ok=True)
 os.chdir(work_dir)
 
-# Extract assets (includes typst binary - NO NETWORK NEEDED)
-with zipfile.ZipFile(f"/mnt/data/{assets_path}", "r") as zip_ref:
-    zip_ref.extractall(work_dir)
-
-# Make typst executable
+# The typst binary is already in /mnt/data/typst from Step 1. Copy it to work_dir.
+import shutil
+shutil.copy("/mnt/data/typst", "typst")
 os.chmod("typst", 0o755)
+
+# The template source is also already extracted. Do NOT try to unzip assetsPath anymore.
+# Just point the compiler to the extracted files in /mnt/data/!
 
 # Create resume.typ with user's content
 # Include photo if user uploaded one
@@ -238,11 +247,13 @@ resume_content = f"""<GENERATED_TYPST_CODE>"""
 with open("resume.typ", "w", encoding="utf-8") as f:
     f.write(resume_content)
 
-# Compile OFFLINE
+# Compile OFFLINE using the globally extracted template source and fonts
+# Obtain the template_file and fonts path from the registry mapping corresponding to `template_id`
 subprocess.run([
     "./typst", 
     "compile", 
-    "--font-path", "fonts",
+    "--root", "/mnt/data",               # Allow paths outside of just the working dir
+    "--font-path", "/mnt/data/fonts",    # Point to the globally extracted fonts
     "resume.typ"
 ], check=True)
 

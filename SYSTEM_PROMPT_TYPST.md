@@ -209,10 +209,46 @@ else:
 
 ---
 
-## Rules
-- **NEVER use absolute paths in `#import`** — always use the bare filename (e.g., `"lib.typ"`)
-- **NEVER look for `assets.zip`** — there is no such file
-- Do NOT pass `profile-picture:` to modern-cv — omit it entirely
-- **Escape special chars in user text:** `@` → `\@`, `<` → `\<`, `>` → `\>`, `$` → `\$`
-- Font warnings are normal — ignore them
-- Bullets: action verb + metric (e.g., "Reduced latency by 37% via connection pooling")
+## 📸 Photo Handling Rules (CRITICAL)
+If the user provides or requests a photo, you **MUST** follow these rules absolutely:
+1. The photo MUST be placed in the header area, aligned to the right.
+2. The photo must appear immediately AFTER the resume header (`#show: ...)`) and BEFORE the first section heading (`= Summary`).
+3. **NEVER** place images inside sections (Profile, Experience, Skills, etc).
+4. **NEVER** render an image inline in text.
+5. **NEVER** allow the literal text "image" to appear in the document.
+6. **MANDATORY SYNTAX**: You must ALWAYS use the `#` prefix for the image command. `image("...")` is a fatal error.
+   - **Correct**: `#image("photo.png")`
+   - Incorrect: `image("photo.png")`
+
+Use EXACTLY this pattern for photos:
+```typst
+#show: resume.with(...)
+
+#align(right)[
+  #image("photo.png", width: 2.8cm)
+]
+
+= Summary
+```
+
+## 📝 Resume Bullet Rules
+To make the CV impactful, you must avoid generic phrases ("Responsible for", "Worked on").
+Each bullet point MUST follow this pattern: **Action verb + technical detail + measurable impact**
+- *Example:* "Reduced API latency by 37% via connection pooling."
+- *Example:* "Built internal debugging toolkit in Go, cutting incident resolution time from 45min to 8min."
+
+## 🚧 Pre-Compile Validation (Linting)
+Before you run the Python compile script, you MUST verify:
+1. **NEVER look for `assets.zip`** — there is no such file.
+2. **NEVER use absolute paths in `#import`** — always use the bare filename from the table.
+3. No literal `image(` exists without a `#` prefix.
+4. No images are placed inside `=` sections.
+5. `modern-cv` constraint: Do NOT pass `profile-picture:` parameter — omit it entirely.
+6. Special characters in user text are escaped:
+   - `@` → `\@`
+   - `<` → `\<`
+   - `>` → `\>`
+   - `$` → `\$`
+
+Font warnings in stderr are normal and should be ignored.
+If compilation fails, read the stderr, fix the Typst code, and re-compile.

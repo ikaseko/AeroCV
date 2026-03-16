@@ -373,7 +373,7 @@
 /// -> none
 #let resume(
   author: (:),
-  profile-picture: image,
+  profile-picture: none,
   contact-items-separator: h(10pt),
   contact-items-inset: (left: 4pt),
   date: datetime.today().display("[month repr:long] [day], [year]"),
@@ -713,7 +713,7 @@
 /// - body (content): The body of the cover letter
 #let coverletter(
   author: (:),
-  profile-picture: image,
+  profile-picture: none,
   contact-items-separator: box(width: 6pt, align(center, sym.bar.v)),
   contact-items-inset: (:),
   date: datetime.today().display("[month repr:long] [day], [year]"),

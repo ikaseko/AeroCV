@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = ROOT / "templates"
-FONTS_DIR = ROOT / "fonts"
+FONTS_DIR = ROOT / "FIRST_VERSION" / "assets_typst_unpacked" / "fonts"
 PACKAGES_DIR = ROOT / "packages"
 PREVIEW_DIR = ROOT / "template_images" / "resumes"
 OUTPUT_DIR = ROOT / "agent_output"

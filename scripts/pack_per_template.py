@@ -68,13 +68,13 @@ TEMPLATES = {
 
 # Template metadata for metadata.md
 TEMPLATE_META = {
-    "modern-cv":    ("Clean, professional",      "Tech, Corporate, ATS-friendly. Has photo & cover letter support."),
-    "vantage":      ("Two-column, skill bars",    "Engineering, Support, ATS-optimized."),
-    "designer-cv":  ("Creative, vibrant colors",  "Designers, Creatives, Marketing."),
-    "executive-cv": ("Formal, corporate",         "Executives, Senior Management, Finance."),
-    "portfolio-cv": ("Projects-focused",          "Developers, Artists, Portfolio showcase."),
-    "typst-cv":     ("Academic, minimal",         "Academia, Research, Simple roles."),
-    "vercanard":    ("Minimalist, sidebar",       "Minimalist style, any role."),
+    "modern-cv":    ("Classic & Header-centric", "Traditional corporate, Academic, Legal. Basic lists with a large top header."),
+    "vantage":      ("High-Impact Tech & Skills", "Backend/Frontend Engineers, SRE, DevOps, Data Science. High IT/Tech focus with side-by-side layout and skill bars."),
+    "designer-cv":  ("Creative & Vibrant color", "UI/UX Designers, Frontend Devs, Marketers. Visually striking with an accent sidebar."),
+    "executive-cv": ("Formal Leadership",        "C-Level, Management, Consulting, Finance. Very clean, conservative, structured."),
+    "portfolio-cv": ("Developer Portfolio",      "Fullstack Engineers, Open-Source Contributors. Prominently highlights GitHub projects and tech stacks."),
+    "typst-cv":     ("Academic & Minimalist",    "Researchers, PhDs, Scientists. Extremely sparse styling focused purely on content and publications."),
+    "vercanard":    ("Modern Asymmetric Sidebar", "Product Managers, Startup Roles. Stylish left-aligned contact/skills sidebar with rich main content area."),
 }
 
 

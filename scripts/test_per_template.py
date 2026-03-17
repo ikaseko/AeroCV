@@ -82,7 +82,7 @@ TEST_CODE = {
 #show: resume.with(
   name: "Test User", title: "Engineer", accent-color: rgb("f3bc54"), margin: 2.6cm,
   aside: [= Contact
-- test\@test.com
+- #("test@test.com")
 = Skills
 - Go]
 )
@@ -92,8 +92,9 @@ TEST_CODE = {
     "brilliant-cv": '''#import "lib.typ": cv, cv-section, cv-entry
 #let metadata = toml("metadata.toml")
 #metadata.language = "en"
-#metadata.personal.first_name = "Test"
-#metadata.personal.last_name = "User"
+#(metadata.personal.first_name = "Test")
+#(metadata.personal.last_name = "User")
+#(metadata.personal.info.email = "test@test.com")
 #show: cv.with(metadata, profile-photo: none)
 #cv-section("Experience")
 #cv-entry(title: "Job", society: "Company", date: "2020-2024", location: "City", description: list([Built things]))

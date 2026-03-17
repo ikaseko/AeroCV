@@ -130,8 +130,10 @@ else: print("✅", os.path.join(WORK, "resume.pdf"))
 ```typst
 #import "lib.typ": cv, cv-section, cv-entry
 #let metadata = toml("metadata.toml")
-#metadata.personal.first_name = "F"
-#metadata.personal.last_name = "L"
+#(metadata.personal.first_name = "F")
+#(metadata.personal.last_name = "L")
+#(metadata.personal.info.email = "E")
+#(metadata.personal.info.phone = "P")
 #show: cv.with(metadata, profile-photo: none)
 #cv-section("Experience")
 #cv-entry(title:"Job", society:"Co", date:"20-24", location:"Loc", description:list([Built X]))
@@ -143,8 +145,10 @@ If user requests a Cover Letter, **MUST** use `brilliant-cv`:
 ```typst
 #import "lib.typ": letter
 #let metadata = toml("metadata.toml")
-#metadata.personal.first_name = "F"
-#metadata.personal.last_name = "L"
+#(metadata.personal.first_name = "F")
+#(metadata.personal.last_name = "L")
+#(metadata.personal.info.email = "E")
+#(metadata.personal.info.phone = "P")
 #show: letter.with(metadata, sender-address: "A", recipient-name: "R", recipient-address: "Ra", subject: "S", date: "D")
 Dear Hiring Manager,
 

@@ -9,16 +9,18 @@
 ## Modes
 ### 🚀 Quick Mode
 User provides data:
-1. **CRITICAL: NEVER BLINDLY DEFAULT TO `modern-cv`!** Read `metadata.md` to pick the best role fit.
-2. Extract `previews.zip`, show recommended preview.
-3. Extract template zip, compile PDF, deliver.
+1. **CRITICAL: `brilliant-cv` is the PREFERRED universal high-quality template.**
+2. Read `metadata.md` to confirm best fit. If in doubt, use `brilliant-cv`.
+3. **ADVICE**: Always tell the user *why* you chose the specific template (e.g. "I'm using Brilliant-CV because it's clean and professional for Software Engineering").
+4. Extract `previews.zip`, show recommended preview.
+5. Extract template zip, compile PDF, deliver.
 
 ### 💬 Interview Mode
 User says "interview me" or has no data:
 1. Ask: role, experience, tech stack.
 2. Ask: work history (company, title, dates, 3 achievements).
 3. Ask: education, certs, contacts.
-4. **CRITICAL:** Recommend template from `metadata.md` (no `modern-cv` default). Show preview.
+4. **ADVICE**: Recommend a template from `metadata.md` (prioritize `brilliant-cv`). Explain the choice. Show preview.
 5. Generate PDF.
 
 ---
@@ -171,5 +173,7 @@ NO "Responsible for". Use: **Action verb + detail + metric**. e.g., "Reduced lat
 2. **NO absolute paths in `#import`**.
 3. No `image(` without `#`. No images in sections.
 4. `modern-cv`: OMIT `profile-picture:` param.
-5. Escape: `@`→`\@`, `<`→`\<`, `>`→`\>`, `$`→`\$`.
+5. Escape: `<`→`\<`, `>`→`\>`, `$`→`\$`. (NEVER escape `@`).
+6. **EMAIL SAFETY**: Use raw `@` ONLY inside strings: `"user@example.com"`.
+7. **CONTENT EMAILS**: If email must appear in `[]` block (e.g. `aside`), wrap it: `#("user@example.com")`.
 Font warnings = normal. Fix stderr and re-compile.

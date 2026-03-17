@@ -60,7 +60,7 @@ TEMPLATES = {
     },
     "brilliant-cv": {
         "source_dir": TEMPLATES_DIR / "brilliant-cv" / "source" / "src",
-        "files": ["cv.typ", "letter.typ", "lib.typ", "../template/metadata.toml"],
+        "files": ["cv.typ", "letter.typ", "lib.typ", "../template/metadata_clean.toml"],
         "dirs": ["utils"],
         "main_file": "lib.typ",
     },

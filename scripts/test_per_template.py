@@ -90,7 +90,7 @@ TEST_CODE = {
 #entry("Engineer", "Company", "2020-2024")
 ''',
     "brilliant-cv": '''#import "lib.typ": cv, cv-section, cv-entry
-#let metadata = toml("metadata.toml")
+#let metadata = toml("metadata_clean.toml")
 #metadata.language = "en"
 #(metadata.personal.first_name = "Test")
 #(metadata.personal.last_name = "User")

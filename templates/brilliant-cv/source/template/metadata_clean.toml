@@ -1,0 +1,63 @@
+language = "en"
+
+[layout]
+    # Optional values: skyblue, red, nephritis, concrete, darknight
+    # You can also use a custom color by hex code i.e. "#1E90FF"
+    awesome_color = "skyblue"
+
+    # Skips are for controlling the spacing between sections and entries
+    before_section_skip = "1pt"
+    before_entry_skip = "1pt"
+    before_entry_description_skip = "1pt"
+
+    # Optional: sets paper size and margins. Possible values: a4 (default), us-letter
+    paper_size = "a4"
+
+    [layout.fonts]
+        regular_fonts = ["Source Sans 3"]
+        header_font = "Roboto"
+
+    [layout.header]
+        # Optional values: left, center, right
+        header_align = "left"
+
+        # Decide if you want to display profile photo or not
+        display_profile_photo = true
+        # Radius in % to clip profile photo at
+        profile_photo_radius = "50%"
+        info_font_size = "10pt"
+
+    [layout.entry]
+        # Decide if you want to put your company in bold or your position in bold
+        display_entry_society_first = true
+
+        # Decide if you want to display organisation logo or not
+        display_logo = true
+
+    [layout.footer]
+        # Decide if you want to display page counter or not
+        display_page_counter = false
+
+        # Decide if you want to display the footer or not
+        display_footer = true
+
+
+[inject]
+    injected_keywords_list = []
+
+[personal]
+    first_name = ""
+    last_name = ""
+
+    [personal.info]
+        # No defaults here to prevent ghost data
+        github = ""
+        phone = ""
+        email = ""
+        linkedin = ""
+        location = ""
+
+[lang.en]
+    header_quote = ""
+    cv_footer = "Curriculum vitae"
+    letter_footer = "Cover letter"

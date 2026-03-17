@@ -9,6 +9,7 @@
 | `portfolio-cv` | Developer Portfolio | Fullstack Engineers, Open-Source Contributors. Prominently highlights GitHub projects and tech stacks. |
 | `typst-cv` | Academic & Minimalist | Researchers, PhDs, Scientists. Extremely sparse styling focused purely on content and publications. |
 | `vercanard` | Modern Asymmetric Sidebar | Product Managers, Startup Roles. Stylish left-aligned contact/skills sidebar with rich main content area. |
+| `brilliant-cv` | Modern & Multilingual | Universal, clean design with excellent typography. Highly adaptable for Software Engineers, Managers, and general professional use. |
 
 ## Import Syntax Per Template
 

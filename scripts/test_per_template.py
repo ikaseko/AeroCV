@@ -89,6 +89,15 @@ TEST_CODE = {
 = Experience
 #entry("Engineer", "Company", "2020-2024")
 ''',
+    "brilliant-cv": '''#import "lib.typ": cv, cv-section, cv-entry
+#let metadata = toml("metadata.toml")
+#metadata.language = "en"
+#metadata.personal.first_name = "Test"
+#metadata.personal.last_name = "User"
+#show: cv.with(metadata, profile-photo: none)
+#cv-section("Experience")
+#cv-entry(title: "Job", society: "Company", date: "2020-2024", location: "City", description: list([Built things]))
+''',
 }
 
 def test_template(template_id: str):
@@ -120,7 +129,7 @@ def test_template(template_id: str):
             return True
         else:
             print(f"  [FAIL] {template_id}: FAILED")
-            print(f"     stderr: {result.stderr[:500]}")
+            print(f"     stderr: {result.stderr[:2000]}")
             return False
 
 def main():

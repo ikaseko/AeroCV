@@ -45,7 +45,7 @@
 /// - latin-header-font (string): the default header font
 /// -> array
 #let overwrite-fonts(metadata, latin-fonts, latin-header-font) = {
-  let user-defined-fonts = metadata.layout.at("fonts", default: [])
+  let user-defined-fonts = metadata.layout.at("fonts", default: ())
   let regular-fonts = latin-fonts
   let header-font = latin-header-font
   if user-defined-fonts.len() > 0 {

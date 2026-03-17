@@ -61,6 +61,7 @@ else: print("✅", os.path.join(WORK, "resume.pdf"))
 `portfolio-cv`: `#import "portfolio-cv.typ": *`
 `typst-cv`: `#import "template.typ": conf, date, show_skills`
 `vercanard`: `#import "main.typ": *`
+`brilliant-cv`: `#import "lib.typ": cv, letter, cv-section, cv-entry`
 
 ---
 ## Code Examples
@@ -122,6 +123,30 @@ else: print("✅", os.path.join(WORK, "resume.pdf"))
 #show: resume.with(name:"N",title:"R",accent-color:rgb("f3bc54"),margin:2.6cm,aside:[= Contact\n- email])
 = Experience
 #entry("Title","Co","20-24")
+```
+### `brilliant-cv`
+```typst
+#import "lib.typ": cv, cv-section, cv-entry
+#let metadata = toml("metadata.toml")
+#metadata.personal.first_name = "F"
+#metadata.personal.last_name = "L"
+#show: cv.with(metadata, profile-photo: none)
+#cv-section("Experience")
+#cv-entry(title:"Job", society:"Co", date:"20-24", location:"Loc", description:list([Built X]))
+```
+
+---
+## ✉️ Cover Letters
+If user requests a Cover Letter, **MUST** use `brilliant-cv`:
+```typst
+#import "lib.typ": letter
+#let metadata = toml("metadata.toml")
+#metadata.personal.first_name = "F"
+#metadata.personal.last_name = "L"
+#show: letter.with(metadata, sender-address: "A", recipient-name: "R", recipient-address: "Ra", subject: "S", date: "D")
+Dear Hiring Manager,
+
+I am writing to apply...
 ```
 
 ---

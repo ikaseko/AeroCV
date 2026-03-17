@@ -58,6 +58,12 @@ TEMPLATES = {
         "files": ["template.typ", "cv_params.toml", "example.typ"],
         "main_file": "template.typ",
     },
+    "brilliant-cv": {
+        "source_dir": TEMPLATES_DIR / "brilliant-cv" / "source" / "src",
+        "files": ["cv.typ", "letter.typ", "lib.typ", "../template/metadata.toml"],
+        "dirs": ["utils"],
+        "main_file": "lib.typ",
+    },
     "vercanard": {
         "source_dir": TEMPLATES_DIR / "vercanard" / "source",
         "files": ["template.typ", "typst.toml"],
@@ -75,6 +81,7 @@ TEMPLATE_META = {
     "portfolio-cv": ("Developer Portfolio",      "Fullstack Engineers, Open-Source Contributors. Prominently highlights GitHub projects and tech stacks."),
     "typst-cv":     ("Academic & Minimalist",    "Researchers, PhDs, Scientists. Extremely sparse styling focused purely on content and publications."),
     "vercanard":    ("Modern Asymmetric Sidebar", "Product Managers, Startup Roles. Stylish left-aligned contact/skills sidebar with rich main content area."),
+    "brilliant-cv": ("Modern & Multilingual",    "Universal, clean design with excellent typography. Highly adaptable for Software Engineers, Managers, and general professional use."),
 }
 
 
@@ -96,7 +103,7 @@ def pack_template(template_id: str, config: dict):
         for fname in config.get("files", []):
             fpath = src / fname
             if fpath.exists():
-                zf.write(fpath, fname)
+                zf.write(fpath, fpath.name)
             else:
                 print(f"  WARNING: {fpath} not found, skipping")
 
@@ -126,13 +133,15 @@ def pack_template(template_id: str, config: dict):
 
 
 def pack_previews():
-    """Pack all preview images into previews.zip."""
+    """Pack only preview images for the supported templates into previews.zip."""
     out_path = OUTPUT_DIR / "previews.zip"
+    supported_names = {f"{k}-preview.png" for k in TEMPLATES.keys()}
     with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zf:
         if PREVIEW_DIR.exists():
             for img in sorted(PREVIEW_DIR.glob("*.png")):
-                zf.write(img, img.name)
-                print(f"  Added preview: {img.name}")
+                if img.name in supported_names:
+                    zf.write(img, img.name)
+                    print(f"  Added preview: {img.name}")
     size_kb = out_path.stat().st_size / 1024
     print(f"  Packed previews.zip ({size_kb:.0f} KB)")
 

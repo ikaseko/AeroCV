@@ -12,7 +12,7 @@
 #let cv(
   metadata,
   doc,
-  profile-photo: image("../template/assets/avatar.png"),
+  profile-photo: none,
   custom-icons: (:),
   // Deprecated parameter (will be removed in v4.0)
   profilePhoto: none,

@@ -10,6 +10,10 @@ A professional CV/Resume and Cover Letter generator using **Typst** with support
 2. **Read `templates_registry.json`** - Get detailed template info  
 3. **Follow `SYSTEM_PROMPT_TYPST.md`** - Compilation instructions
 
+### 🤖 Quickest way — GPT Agent
+No setup. Just describe your target role and paste the job description.
+
+👉 **[Try AeroCV on ChatGPT](https://chatgpt.com/g/g-69b6fdb57ef081918831daa7673cb131-aerocv-ats-resume-cover-letter-pdf-maker)**
 ### Python Code for Code Interpreter
 
 ```python

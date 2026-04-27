@@ -15,6 +15,7 @@ Typst-based CV/resume generator with 9 templates.
 
 ## Rules
 - Always write generated .typ files to output_pdfs/ or the template's source/ dir
+- Read and update knowledge.md on every session (persistent user profile)
 - Never commit PDFs or personal data
 - Prefer brilliant-cv as default template
 - Read SYSTEM_PROMPT_CODE_AGENTS.md before generating any .typ code

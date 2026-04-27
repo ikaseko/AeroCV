@@ -16,8 +16,8 @@ fi
 OS="$(uname -s | tr '[:upper:]' '[:lower:]')"
 ARCH="$(uname -m)"
 case "$OS" in
-    linux)  OS="linux" ;;
-    darwin) OS="macos" ;;
+    linux)  OS="unknown-linux" ;;
+    darwin) OS="apple-darwin" ;;
     *)      echo "Unsupported OS: $OS"; exit 1 ;;
 esac
 case "$ARCH" in
@@ -26,7 +26,7 @@ case "$ARCH" in
     *)             echo "Unsupported arch: $ARCH"; exit 1 ;;
 esac
 
-FILE="typst-${VERSION}-${OS}-${ARCH}.tar.xz"
+FILE="typst-${ARCH}-${OS}.tar.xz"
 URL="https://github.com/typst/typst/releases/download/v${VERSION}/${FILE}"
 
 echo "Downloading typst v${VERSION} for ${OS}-${ARCH}..."

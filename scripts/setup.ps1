@@ -27,12 +27,12 @@ if (Test-Typst) {
     exit 0
 }
 
-$os = if ($IsLinux) { "linux" } elseif ($IsMacOS) { "macos" } else { "windows" }
+$os = if ($IsLinux) { "unknown-linux" } elseif ($IsMacOS) { "apple-darwin" } else { "pc-windows-msvc" }
 $arch = if ([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture -eq "Arm64") { "aarch64" } else { "x86_64" }
-$ext = if ($os -eq "windows") { ".zip" } else { ".tar.xz" }
-$binExt = if ($os -eq "windows") { ".exe" } else { "" }
+$ext = ".zip"
+$binExt = if ($os -eq "pc-windows-msvc") { ".exe" } else { "" }
 
-$fileName = "typst-$Version-$os-$arch$ext"
+$fileName = "typst-$arch-$os$ext"
 $url = "https://github.com/typst/typst/releases/download/v$Version/$fileName"
 
 Write-Host "Downloading typst v$Version for $os-$arch..." -ForegroundColor Cyan
@@ -47,13 +47,10 @@ Invoke-WebRequest -Uri $url -OutFile $archivePath -UseBasicParsing
 
 Write-Host "Extracting..." -ForegroundColor Cyan
 
-if ($os -eq "windows") {
+if ($os -eq "pc-windows-msvc") {
     Expand-Archive -Path $archivePath -DestinationPath $tmpDir -Force
     $typstBin = Get-ChildItem -Path $tmpDir -Recurse -Filter "typst.exe" | Select-Object -First 1
 } else {
-    # tar.xz on linux/macos
-    $tarPath = Join-Path $tmpDir "typst.tar"
-    & xz -d -k $archivePath -c 2>$null | Out-File -Encoding Binary $tarPath
     & tar -xf $archivePath -C $tmpDir 2>$null
     $typstBin = Get-ChildItem -Path $tmpDir -Recurse -Filter "typst" -File | Select-Object -First 1
 }
@@ -64,7 +61,7 @@ if (-not $typstBin) {
 }
 
 Copy-Item $typstBin.FullName -Destination ".\typst$binExt" -Force
-if ($os -ne "windows") {
+if ($os -ne "pc-windows-msvc") {
     & chmod +x "./typst"
 }
 

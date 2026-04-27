@@ -1,5 +1,7 @@
 # AeroCV - Multi-Template Typst Resume Generator
 
+![AeroCV Templates](template_images/banner.png)
+
 A professional CV/Resume and Cover Letter generator using **Typst** with **9 templates**. Designed for use with **local coding agents** (Claude Code, Qwen Code, Cline, Roo Code, Kilo) and **cloud GPT agents**.
 
 ## Quick Start

@@ -52,13 +52,21 @@ Data resolution priority (highest to lowest):
 </input_data>
 
 <instructions>
-## Step 0: Load Knowledge
+## Step 0: Ensure Dependencies
+1. Check if typst is available: `typst --version` or `./typst --version` or `./typst.exe --version`
+2. If typst is not found, run the setup script:
+   - Windows: `pwsh -File scripts/setup.ps1`
+   - Linux/macOS: `bash scripts/setup.sh`
+3. This downloads the typst binary to the project root (gitignored).
+4. After setup, use `./typst` or `./typst.exe` to compile.
+
+## Step 1: Load Knowledge
 1. Read knowledge.md. If it exists and has populated fields, use it as the primary data source.
 2. If knowledge.md is empty or missing, check output_pdfs/ for any .typ files from previous sessions. Parse them to extract user data (name, contacts, work history, skills).
 3. If neither source has enough data, switch to Interview Mode.
 4. After generating a CV, ALWAYS update knowledge.md with any new facts learned in this session.
 
-## Step 1: Mode Selection
+## Step 2: Mode Selection
 Choose one mode before doing anything else.
 - Quick Mode: user provides enough data OR knowledge.md is sufficiently populated.
 - Interview Mode: user says "interview me" or data is insufficient after checking knowledge.md and past .typ files.
@@ -73,7 +81,7 @@ When the user provides a job description (JD):
 5. Do NOT fabricate experience or skills the user does not have. Only reorder, emphasize, and rephrase existing facts.
 6. If the JD requires skills not in knowledge.md, ask the user whether they have those skills before including them.
 
-## Step 2: Template Selection
+## Step 3: Template Selection
 1. Read quick_reference.json.
 2. Verify which template source files actually exist in templates/<id>/source/.
 3. In JD Adaptation Mode, prefer templates that best showcase the JD-relevant strengths (e.g., portfolio-cv for dev roles, executive-cv for leadership).
@@ -83,7 +91,7 @@ When the user provides a job description (JD):
 7. Show preview from template_images/resumes/<id>-preview.png when possible.
 8. If no compatible template can be verified, stop and report the issue.
 
-## Step 3: Generate Typst
+## Step 4: Generate Typst
 1. Write the .typ file to the template's source/ directory or to output_pdfs/.
 2. Use only the correct import for the selected template:
    - modern-cv: #import "lib.typ": *
@@ -98,7 +106,7 @@ When the user provides a job description (JD):
 4. In JD Adaptation Mode, apply vacancy-specific tailoring from Step 1.
 5. Apply linting rules (see quality_bar).
 
-## Step 4: Compile
+## Step 5: Compile
 Standard compilation:
 ```bash
 typst compile --font-path templates/<TEMPLATE_ID>/fonts <file>.typ output_pdfs/<output>.pdf
@@ -119,13 +127,13 @@ When compiling a .typ file that imports from a template's source/ directory, eit
 - Place the .typ file in templates/<id>/source/ and compile from there, OR
 - Use the --root flag: typst compile --root . --font-path templates/<id>/fonts <file>.typ
 
-## Step 5: Persist Knowledge
+## Step 6: Persist Knowledge
 After successful PDF generation, update knowledge.md:
 1. Add any new facts learned during this session (new role, new skills, corrections).
 2. In JD Adaptation Mode, add a note under "Job-Specific Notes" with the company, role, and key adjustments made.
 3. Never delete existing data — only add or update fields.
 
-## Step 6: Deliver
+## Step 7: Deliver
 If there is an actionable compile error, fix and re-compile.
 Never claim success before the PDF is actually produced.
 All generated PDFs go to output_pdfs/ (gitignored).

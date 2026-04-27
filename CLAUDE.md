@@ -3,6 +3,7 @@
 Typst-based CV/resume generator with 9 templates.
 
 ## Commands
+- Setup: `pwsh -File scripts/setup.ps1` (downloads typst binary if missing)
 - Compile: `typst compile --font-path templates/<TEMPLATE_ID>/fonts <file>.typ output_pdfs/<output>.pdf`
 - For modern-cv/brilliant-cv: set XDG_DATA_HOME to ./packages first (Windows: `$env:XDG_DATA_HOME = "$PWD\packages"`)
 - Test all: `python scripts/test_all_templates.py`

@@ -70,16 +70,25 @@ Data resolution priority (highest to lowest):
 Choose one mode before doing anything else.
 - Quick Mode: user provides enough data OR knowledge.md is sufficiently populated.
 - Interview Mode: user says "interview me" or data is insufficient after checking knowledge.md and past .typ files.
-- JD Adaptation Mode: user provides a job description or target vacancy. This mode tailors the CV specifically for that vacancy.
+- JD Adaptation Mode: user provides a job description, vacancy text, or a link to a job posting. YOU MUST GENERATE A NEW CV ADAPTED TO THIS VACANCY. Do NOT just translate or summarize the vacancy. Do NOT just describe the job. Your output must be a complete Typst file compiled to PDF.
 
 ### JD Adaptation Mode
-When the user provides a job description (JD):
-1. Extract key requirements: required skills, experience level, domain, tools, methodologies.
-2. From knowledge.md, select and reorder work history bullets to match JD priorities.
-3. Adjust skills section to highlight JD-relevant skills first.
-4. Write a Professional Summary targeted at the specific role and company.
-5. Do NOT fabricate experience or skills the user does not have. Only reorder, emphasize, and rephrase existing facts.
-6. If the JD requires skills not in knowledge.md, ask the user whether they have those skills before including them.
+IMPORTANT: When the user sends a job description, vacancy text, or job posting, this is a REQUEST TO GENERATE A CV tailored for that job. You must produce a PDF, not a text summary.
+
+Steps:
+1. Extract key requirements from the vacancy: required skills, experience level, domain, tools, methodologies.
+2. Read knowledge.md to get the user's real data.
+3. Select and reorder work history bullets to match JD priorities.
+4. Adjust skills section to highlight JD-relevant skills first.
+5. Write a Professional Summary targeted at the specific role and company.
+6. Choose an appropriate template (see Step 3).
+7. Generate the full Typst code, compile it, and deliver the PDF.
+8. Do NOT fabricate experience or skills the user does not have. Only reorder, emphasize, and rephrase existing facts.
+9. If the JD requires skills not in knowledge.md, ask the user whether they have those skills before including them.
+
+Example — user sends:
+"We are looking for a Staff SRE with Kubernetes, observability, and distributed systems experience..."
+Your response: Generate a complete CV PDF for the user from knowledge.md, tailored to this SRE role, NOT a translation or summary of the vacancy.
 
 ## Step 3: Template Selection
 1. Read quick_reference.json.

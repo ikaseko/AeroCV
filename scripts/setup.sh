@@ -5,7 +5,7 @@
 # Usage: ./scripts/setup.sh [--version 0.12.0]
 
 set -euo pipefail
-VERSION="${2:-0.12.0}"
+VERSION="${2:-0.14.2}"
 
 if command -v typst &>/dev/null || [ -f ./typst ]; then
     echo "typst already available."

@@ -6,7 +6,7 @@
     to the project root. Skips if typst is already available.
 #>
 param(
-    [string]$Version = "0.12.0"
+    [string]$Version = "0.14.2"
 )
 
 $ErrorActionPreference = "Stop"

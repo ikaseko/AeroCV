@@ -1,9 +1,17 @@
 import os
 import subprocess
 import json
+from pathlib import Path
 
-base_dir = r"c:/Users/bbog2/Downloads/AWESOME_CV"
-typst_bin = os.path.join(base_dir, "typst.exe")
+base_dir = str(Path(__file__).resolve().parent.parent)
+typst_bin = os.path.join(base_dir, "typst.exe") if os.name == "nt" else os.path.join(base_dir, "typst")
+
+# Fallback: try typst from PATH
+if not os.path.isfile(typst_bin):
+    import shutil
+    typst_in_path = shutil.which("typst")
+    if typst_in_path:
+        typst_bin = typst_in_path
 
 def test_compile():
     registry_path = os.path.join(base_dir, "templates_registry.json")
@@ -13,7 +21,7 @@ def test_compile():
     all_passed = True
     failed = []
     print("Starting Compilation Tests...")
-    log_path = os.path.join(base_dir, "output", "test_errors.log")
+    log_path = os.path.join(base_dir, "output_pdfs", "test_errors.log")
     with open(log_path, 'w', encoding='utf-8') as log_file:
         log_file.write("Compilation Error Log\n====================\n\n")
     
@@ -24,7 +32,7 @@ def test_compile():
         print(f"\nTesting: {name}")
         
         template_file = os.path.join(base_dir, t['paths']['templateFile'])
-        out_pdf = os.path.join(base_dir, "output", f"test_{t['id']}.pdf")
+        out_pdf = os.path.join(base_dir, "output_pdfs", f"test_{t['id']}.pdf")
         
         # Ensure output dir exists
         os.makedirs(os.path.dirname(out_pdf), exist_ok=True)

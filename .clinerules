@@ -1,0 +1,8 @@
+Read SYSTEM_PROMPT_CODE_AGENTS.md before generating Typst code.
+Use brilliant-cv as default template.
+Compile: typst compile --font-path templates/<TEMPLATE_ID>/fonts <file>.typ output_pdfs/<output>.pdf
+For modern-cv/brilliant-cv, set XDG_DATA_HOME=./packages
+Never commit PDFs or personal data to output_pdfs/.
+Escape < and > in text as \< and \>.
+Use @ only inside strings: "user@example.com"
+Always use #image(...) — never bare image(...)

@@ -1,47 +1,35 @@
-# AeroCV - Multi-Template Typst System
+# AeroCV - Multi-Template Typst Resume Generator
 
-A professional CV/Resume and Cover Letter generator using **Typst** with support for **6 templates**. Designed for use with GPT Code Interpreter (Advanced Data Analysis) in fully offline mode.
+A professional CV/Resume and Cover Letter generator using **Typst** with **9 templates**. Designed for use with **local coding agents** (Claude Code, Qwen Code, Cline, Roo Code, Kilo) and **cloud GPT agents**.
 
-## 🚀 Quick Start
+## Quick Start
 
-### For GPT Agent
+### For Local Coding Agents
 
-1. **Read `quick_reference.json`** - Discover available templates
-2. **Read `templates_registry.json`** - Get detailed template info  
-3. **Follow `SYSTEM_PROMPT_TYPST.md`** - Compilation instructions
+1. **Read `AGENTS.md`** — full agent setup guide for all popular tools
+2. **Read `quick_reference.json`** — discover available templates
+3. **Read `SYSTEM_PROMPT_CODE_AGENTS.md`** — compilation instructions & code examples
+4. **Compile**: `typst compile --font-path templates/<id>/fonts <file>.typ output_pdfs/<output>.pdf`
 
-### 🤖 Quickest way — GPT Agent
-No setup. Just describe your target role and paste the job description.
+### For GPT / Cloud Agents
 
-👉 **[Try AeroCV on ChatGPT](https://chatgpt.com/g/g-69b6fdb57ef081918831daa7673cb131-aerocv-ats-resume-cover-letter-pdf-maker)**
-### Python Code for Code Interpreter
+Try it instantly: [AeroCV on ChatGPT](https://chatgpt.com/g/g-69b6fdb57ef081918831daa7673cb131-aerocv-ats-resume-cover-letter-pdf-maker)
 
-```python
-import os, zipfile, subprocess, json
+1. **Read `quick_reference.json`** — discover available templates
+2. **Read `templates_registry.json`** — get detailed template info
+3. **Follow `SYSTEM_PROMPT_TYPST.md`** — compilation instructions
+4. **Build agent packs**: `python scripts/pack_per_template.py`
 
-# Load template info
-with open("/mnt/data/quick_reference.json") as f:
-    ref = json.load(f)
+### Minimal Example (brilliant-cv)
 
-# Get assets path (user selects template)
-assets_path = ref["availableTemplates"]["resumes"][0]["assetsPath"]
+```bash
+# Windows
+$env:XDG_DATA_HOME = "$PWD\packages"
+typst compile --font-path templates\brilliant-cv\fonts my_resume.typ output_pdfs\my_resume.pdf
 
-# Setup work directory
-work_dir = "/mnt/data/cv_build"
-os.makedirs(work_dir, exist_ok=True)
-os.chdir(work_dir)
-
-# Extract assets (includes typst binary)
-with zipfile.ZipFile(f"/mnt/data/{assets_path}", "r") as zip_ref:
-    zip_ref.extractall(work_dir)
-
-os.chmod("typst", 0o755)
-
-# Create and compile
-with open("resume.typ", "w") as f:
-    f.write(resume_content)
-
-subprocess.run(["./typst", "compile", "--font-path", "fonts", "resume.typ"])
+# Linux/macOS
+export XDG_DATA_HOME="$PWD/packages"
+typst compile --font-path templates/brilliant-cv/fonts my_resume.typ output_pdfs/my_resume.pdf
 ```
 
 ## 📋 Available Templates
@@ -116,59 +104,51 @@ subprocess.run(["./typst", "compile", "--font-path", "fonts", "resume.typ"])
 - **Fonts**: Roboto, Montserrat
 - **Packages**: None
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 AeroCV/
 ├── templates/                    # Template storage
-│   ├── modern-cv/               # Modern CV template
-│   ├── typst-cv/                # Typst CV template
-│   ├── brilliant-cv/            # Brilliant CV
-│   ├── vercanard/               # VerCanard
-│   ├── vantage/                 # Vantage
-│   ├── neat-cv/                 # Neat CV
-│   ├── designer-cv/             # High-end Designer CV
-│   ├── executive-cv/            # Structured Executive CV
-│   └── portfolio-cv/            # Project-focused CV
-│       ├── assets/              # Compiled assets (ZIP)
-│       ├── source/              # Template source files
-│       ├── fonts/               # Font files
-│       └── packages/            # Typst packages
+│   └── <id>/
+│       ├── source/               # Template source files
+│       ├── fonts/                # Font files
+│       └── packages/             # Typst packages (if needed)
 │
-├── cover_letters/               # Cover letter templates
-│   └── modern-cv/
+├── cover_letters/                # Cover letter templates
+├── template_images/              # Preview images
+├── scripts/                      # Build & test scripts
+├── schemas/                      # JSON schemas
+├── docs/                         # Documentation
+│   ├── ATS_GUIDELINES.md
+│   ├── ROADMAP.md
+│   └── PHOTO_QUICK_REF.md
 │
-├── template_images/             # Preview images
-│   ├── resumes/                # Resume previews
-│   └── cover_letters/          # Cover letter previews
+├── output_pdfs/                  # ⬅️ Generated PDFs (gitignored)
+├── packages/                     # Shared Typst packages (fontawesome, linguify)
 │
-├── output/                      # Generated PDFs
-├── scripts/                     # Build scripts
-├── schemas/                     # JSON schemas
-├── docs/                        # Documentation
-│   ├── ATS_GUIDELINES.md       # ATS compatibility guide
-│   ├── ROADMAP.md              # Template creation roadmap
-│   └── TEMPLATE_IMPORT_STATUS.md
-│
-├── templates_registry.json      # 📋 Template registry
-├── quick_reference.json         # ⚡ Quick reference guide
-├── SYSTEM_PROMPT_TYPST.md       # 🤖 GPT agent instructions
-└── README.md                    # This file
+├── AGENTS.md                     # 🤖 Agent setup guide (READ THIS FIRST)
+├── SYSTEM_PROMPT_CODE_AGENTS.md  # 🖥️ Prompt for local code agents (Claude Code, Qwen Code, etc.)
+├── SYSTEM_PROMPT_TYPST.md        # ☁️ Prompt for chat/cloud models (GPT, Gemini)
+├── templates_registry.json       # Machine-readable template catalog
+├── quick_reference.json          # Abbreviated template info
+└── README.md                     # This file
 ```
 
-## 📄 Key Files
+## Key Files
 
-| File | Purpose | Size |
-|------|---------|------|
-| `quick_reference.json` | Quick template discovery | 2.3 KB |
-| `templates_registry.json` | Full template registry with paths | 6+ KB |
-| `SYSTEM_PROMPT_TYPST.md` | GPT agent instructions | 7.2 KB |
-| `schemas/*.schema.json` | JSON schema validation | 11 KB |
-| `docs/ATS_GUIDELINES.md` | ATS compatibility guide | - |
-| `docs/ROADMAP.md` | Template creation roadmap | - |
-| `docs/PHOTO_QUICK_REF.md` | 📸 Profile Photo Quick Ref | - |
+| File | Purpose |
+|------|---------|
+| `AGENTS.md` | Agent setup guide for all local coding agents |
+| `SYSTEM_PROMPT_CODE_AGENTS.md` | Template syntax, code examples & compilation for local code agents |
+| `SYSTEM_PROMPT_TYPST.md` | Template syntax, code examples & compilation for chat/cloud models |
+| `quick_reference.json` | Quick template discovery (machine-readable) |
+| `templates_registry.json` | Full template registry with paths |
+| `schemas/*.schema.json` | JSON schema validation |
+| `docs/ATS_GUIDELINES.md` | ATS compatibility guide |
+| `docs/ROADMAP.md` | Template creation roadmap |
+| `docs/PHOTO_QUICK_REF.md` | Profile photo quick reference |
 
-## 📸 Profile Photo Support
+## Profile Photo Support
 
 Several templates support including a professional profile photo. When using a compatible template, the AI agent will ask if you'd like to include one.
 
@@ -186,18 +166,23 @@ Several templates support including a professional profile photo. When using a c
 For technical implementation details, see [docs/PHOTO_QUICK_REF.md](docs/PHOTO_QUICK_REF.md).
 
 
-1. Clone template: `python import_templates.py`
-2. Analyze: `python analyze_templates.py`
-3. Organize: `python organize_templates.py`
-4. Build assets: `python build_template_assets.py`
-5. Update registry: `python update_registry.py`
-6. Verify: `python verify_project.py`
+## Local Agent Integration
 
-## 🌐 Supported Languages
+See **[AGENTS.md](AGENTS.md)** for detailed setup instructions for:
+
+- **Claude Code** (Anthropic CLI)
+- **Qwen Code** (Qwen CLI)
+- **Cline / Roo Code** (VS Code extensions)
+- **Continue** (VS Code extension)
+- **Kilo** (CLI)
+
+All agents should read `SYSTEM_PROMPT_CODE_AGENTS.md` (local agents) or `SYSTEM_PROMPT_TYPST.md` (cloud agents) before generating any `.typ` code. Output PDFs to `output_pdfs/`.
+
+## Supported Languages
 
 35+ languages including: English, Russian, German, French, Spanish, Italian, Portuguese, Dutch, Polish, Chinese, Japanese, Korean, Arabic, Hindi, Turkish, and more.
 
-## ✅ ATS Compatibility
+## ATS Compatibility
 
 All templates follow ATS best practices:
 - ✅ Semantic headings
@@ -208,16 +193,15 @@ All templates follow ATS best practices:
 
 See [docs/ATS_GUIDELINES.md](docs/ATS_GUIDELINES.md) for details.
 
-## 🔧 Scripts
+## Scripts
 
 | Script | Purpose |
 |--------|---------|
-| `import_templates.py` | Clone template repositories |
-| `analyze_templates.py` | Analyze template structure |
-| `organize_templates.py` | Organize into project structure |
-| `build_template_assets.py` | Build assets.zip for templates |
-| `update_registry.py` | Update templates_registry.json |
-| `verify_project.py` | Verify project structure |
+| `scripts/test_all_templates.py` | Compile every template and report success/failure |
+| `scripts/pack_per_template.py` | Build per-template ZIPs for cloud GPT agents |
+| `scripts/pack_agent_zip.py` | Build combined agent data ZIP |
+| `scripts/build_typst_template.py` | Build typst template assets |
+| `scripts/update_jsons.py` | Update registry JSON files |
 
 ## 📝 License
 

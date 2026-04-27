@@ -1,18 +1,70 @@
-# Executables
-*.exe
+# Typst binaries (users install themselves or pack script bundles them)
+typst
 typst.exe
+*.exe
 
 # OS generated files
 .DS_Store
 Thumbs.db
 
-# Temporary / Generated files
-_temp_import/
+# Generated output
 output/
+output_pdfs/
+
+# Python cache
 __pycache__/
 *.pyc
 
-# Local environments / IDEs
+# IDE / editors
 .vscode/
 .idea/
 .gemini/
+
+# Test artifacts (root level)
+test_*.typ
+test_*.pdf
+test_*.txt
+
+# Sample PDFs inside template source (regeneratable)
+templates/*/source/*.pdf
+cover_letters/*/source/*.pdf
+
+# Asset zips (rebuilt by scripts/pack_per_template.py or scripts/create_assets.py)
+templates/*/assets/typst_assets.zip
+cover_letters/*/assets/typst_assets.zip
+
+# Design source files (not needed for compilation)
+*.afdesign
+
+# Personal CV results
+ivan_kaseko_*
+CV_ivan_*
+Cover-ivan_*
+
+# Legacy directories (removed from repo)
+FIRST_VERSION/
+assets_typst/
+_temp_import/
+_temp_import
+
+# Root-level junk (moved or deleted)
+AeroCV_Agent_Data.zip
+assets.zip
+/*.ttf
+/*.otf
+
+# Agent output (rebuilt by scripts/pack_per_template.py)
+agent_output/
+
+# Chat agent output (rebuilt by scripts/pack_chat_agent.ps1)
+chat_agent_output/
+
+# Import manifests (regenerated)
+_import_manifest.json
+_organization_manifest.json
+
+# Duplicate fonts inside neat-cv source (use neat-cv/fonts/ instead)
+templates/neat-cv/source/src/fonts/
+
+# neat-cv sample output (regeneratable)
+templates/neat-cv/source/output/

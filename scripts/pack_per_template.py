@@ -20,7 +20,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = ROOT / "templates"
-FONTS_DIR = ROOT / "FIRST_VERSION" / "assets_typst_unpacked" / "fonts"
 PACKAGES_DIR = ROOT / "packages"
 PREVIEW_DIR = ROOT / "template_images" / "resumes"
 OUTPUT_DIR = ROOT / "agent_output"
@@ -97,6 +96,7 @@ def pack_template(template_id: str, config: dict):
     """Pack a single template into a flat zip."""
     out_path = OUTPUT_DIR / f"{template_id}.zip"
     src = config["source_dir"]
+    fonts_dir = TEMPLATES_DIR / template_id / "fonts"
 
     with zipfile.ZipFile(out_path, "w", zipfile.ZIP_DEFLATED) as zf:
         # Add template source files
@@ -120,9 +120,9 @@ def pack_template(template_id: str, config: dict):
                 if fpath.exists():
                     zf.write(fpath, fname)
 
-        # Add shared fonts
-        if FONTS_DIR.exists():
-            add_dir_to_zip(zf, FONTS_DIR, "fonts/")
+        # Add template-specific fonts
+        if fonts_dir.exists():
+            add_dir_to_zip(zf, fonts_dir, "fonts/")
 
         # Add shared packages (fontawesome, linguify)
         if PACKAGES_DIR.exists():
@@ -198,7 +198,7 @@ def main():
     print("\n=== Generating metadata ===")
     generate_metadata()
 
-    print(f"\n✅ All files written to {OUTPUT_DIR}/")
+    print(f"\nAll files written to {OUTPUT_DIR}/")
     print(f"   Total files: {len(list(OUTPUT_DIR.iterdir()))}")
 
 

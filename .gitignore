@@ -1,3 +1,6 @@
+# Test / scratch directory
+.test/
+
 # Typst binaries (users install themselves or pack script bundles them)
 typst
 typst.exe

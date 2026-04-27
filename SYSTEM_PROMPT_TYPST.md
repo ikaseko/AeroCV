@@ -181,7 +181,7 @@ If a photo is requested:
 3. No image( without #image(.
 4. No images inside sections.
 5. modern-cv: omit profile-picture parameter.
-6. Escape < as \<, > as \>, $ as \$.
+6. Escape < as \<, > as \>, $ as \$, # as \# (e.g., "C#" → "C\#").
 7. Do not escape @ in email strings.
 8. If email appears inside a Typst content block like [], wrap it as #("user@example.com").
 9. Font warnings are non-fatal.
@@ -284,6 +284,12 @@ image("photo.png", width: 2.8cm)
 
 // CORRECT: wrap in string or #() expression
 #align(right)[#("user@example.com")]
+
+// WRONG: # in text like C# — will cause parse error
+Skills: C#, .NET
+
+// CORRECT: escape # as \#
+Skills: C\#, .NET
 ```
 </examples>
 
